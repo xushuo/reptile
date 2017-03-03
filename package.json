@@ -1,0 +1,16 @@
+{
+  "name": "reptile",
+  "version": "1.0.0",
+  "description": "爬虫初试",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "xs",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "sync-request": "^4.0.1"
+  }
+}
