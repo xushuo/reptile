@@ -11,6 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "cheerio": "^0.22.0",
+    "iconv-lite": "^0.4.15",
+    "superagent": "^3.5.0",
+    "superagent-charset": "^1.1.1",
     "sync-request": "^4.0.1"
   }
 }
