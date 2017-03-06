@@ -7,7 +7,7 @@ var cheerio = require('cheerio');
 var request = require('sync-request');
 var fs = require('fs');
 var file = 'movie.text';
-var url = 'http://movie.douban.com/subject/25724855/';
+var url = 'https://movie.douban.com/subject/25765735/';
 var html = '';
 html = request('GET',url).getBody().toString();
 //console.log(html);
@@ -49,7 +49,9 @@ function handleDB(html){
     var DBVotes = $('a.rating_people>span').text().replace(/\B(?=(\d{3})+$)/g,',');
     var DB = '- 豆 瓣评分: ' + DBScore + '/10' + '('+DBVotes+'人评价)';
     //IMDBLink
-    IMDBLink = $('#info').children().last().prev().attr('href');
+    IMDBLink = $("#info span").filter(function(i,el){
+        return $(this).text()==='IMDb链接:'
+    }).next().attr('href');
     var data = movieName +'\r\n'+directories +'\r\n'+starName+'\r\n'+runTime+'\r\n'+kinds+'\r\n'+DB+'\r\n';
     // 输出文件
     fs.appendFile(file,data,'utf-8',function(error){
@@ -57,7 +59,6 @@ function handleDB(html){
             throw error;
         }else {
             console.log('大体信息写入完毕\r\n'+data);
-
             var link = request('GET',IMDBLink).getBody().toString();
             handleIMDB(link);
         }

@@ -33,7 +33,7 @@ request.get(url) //获取网页内容
                 topno:i,
                 title:$(this).find('title').text(),
                 author:$(this).find('author').text(),
-                pubDate:$(this).find('purDate').text(),
+                pubDate:$(this).find('pubDate').text(),
                 boardName:$(this).find('guid').text().replace(/http:\/\/bbs.byr.cn\/article\//,'').replace(/\/\d+/,'').trim(),
                 link:$(this).find('link').text(),
                 content:$(this).find('description').text()
